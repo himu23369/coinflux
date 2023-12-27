@@ -1,4 +1,3 @@
-// src/components/HeaderNavbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg'; // Update the path to your logo
@@ -8,9 +7,6 @@ const HeaderNavbar = () => {
     background: 'linear-gradient(to right, #2C3E50, #4CAF50)', // Dark greenish gradient
     color: '#FFFFFF', // White text color
     padding: '1.5rem', // Adjusted padding
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     fontFamily: 'Helvetica Neue, sans-serif',
   };
 
@@ -39,25 +35,25 @@ const HeaderNavbar = () => {
   };
 
   const navItemStyle = {
-    marginTop: '1rem' ,
-    marginLeft: '1rem',
+    marginTop: '1rem',
+    marginLeft: '0.8rem',
     fontSize: '1.5rem', // Adjusted font size
   };
 
   return (
-    <header style={headerStyle}>
+    <header style={headerStyle} className="lg:flex lg:justify-between lg:items-center">
       <div className="container mx-auto">
         <div style={logoContainerStyle}>
           <img src={logo} alt="Logo" style={logoStyle} />
           <div>
-            <div style={companyNameStyle}>COINFLUX SERVICES PVT. LTD.</div>
+            {/* <div style={companyNameStyle}>COINFLUX SERVICES PVT. LTD.</div> */}
           </div>
         </div>
-        <nav>
-          <ul style={navbarStyle}>
+        <nav className="lg:flex lg:items-center">
+          <ul style={navbarStyle} className="lg:flex lg:items-center">
             <li style={navItemStyle}><Link to="/">Home</Link></li>
             <li style={navItemStyle}><Link to="/services">Services</Link></li>
-            <li style={navItemStyle}><Link to="/contact">Contact Us</Link></li>
+            <li style={navItemStyle}><Link to="/contact">Contact</Link></li>
             <li style={navItemStyle}><Link to="/location">Location</Link></li>
           </ul>
         </nav>

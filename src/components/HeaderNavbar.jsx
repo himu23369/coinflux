@@ -46,14 +46,14 @@ const HeaderNavbar = () => {
         <div style={logoContainerStyle}>
           <img src={logo} alt="Logo" style={logoStyle} />
           <div>
-            {/* <div style={companyNameStyle}>COINFLUX SERVICES PVT. LTD.</div> */}
+            {/* <div style={companyNameStyle}>COINFLUX SERVICES</div> */}
           </div>
         </div>
         <nav className="lg:flex lg:items-center">
           <ul style={navbarStyle} className="lg:flex lg:items-center">
             <li style={navItemStyle}><Link to="/">Home</Link></li>
             <li style={navItemStyle}><Link to="/services">Services</Link></li>
-            <li style={navItemStyle}><Link to="/contact">Contact</Link></li>
+            {/* <li style={navItemStyle}><Link to="/contact">Contact</Link></li> */}
             <li style={navItemStyle}><Link to="/location">Location</Link></li>
           </ul>
         </nav>

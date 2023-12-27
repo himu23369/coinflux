@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
 import logo from '../assets/logo.jpg'; // Update the path to your logo
 
 const Header = () => {
@@ -19,14 +18,13 @@ const Header = () => {
     height: '3rem',
     width: 'auto',
     paddingLeft: '1rem'
-  };
+  };  
 
   return (
     <header style={headerStyle}>
       <div className="container mx-auto">
         <img src={logo} alt="Logo" style={logoStyle} />
         <h1 style={{ paddingLeft: '1rem' }}>COINFLUX SERVICES PVT. LTD.</h1>
-        {/* <Navbar /> */}
       </div>
     </header>
   );

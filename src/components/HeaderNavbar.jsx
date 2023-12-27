@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaReact, FaBars, FaTimes } from 'react-icons/fa'; // Import the React icons
 import logo from '../assets/logo.jpg'; // Update the path to your logo
 
 const HeaderNavbar = () => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
   const headerStyle = {
     background: 'linear-gradient(to right, #2C3E50, #4CAF50)', // Dark greenish gradient
     color: '#FFFFFF', // White text color
     padding: '1.5rem', // Adjusted padding
     fontFamily: 'Helvetica Neue, sans-serif',
+  };
+
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between', // Updated style
+    alignItems: 'center',
   };
 
   const logoContainerStyle = {
@@ -17,13 +26,15 @@ const HeaderNavbar = () => {
 
   const logoStyle = {
     height: '3.8rem',
-    width: 'auto',
+    width: '10rem',
     marginRight: '1rem', // Adjusted margin
   };
 
   const companyNameStyle = {
-    fontSize: '1.8rem', // Adjusted font size
+    fontSize: '2.2rem', // Adjusted font size
     fontWeight: 'bold',
+    display: 'flex',
+    alignItems: 'center',
   };
 
   const navbarStyle = {
@@ -36,27 +47,59 @@ const HeaderNavbar = () => {
 
   const navItemStyle = {
     marginTop: '1rem',
-    marginLeft: '0.8rem',
-    fontSize: '1.5rem', // Adjusted font size
+    marginLeft: '1.5rem',
+    fontSize: '1.6rem', // Adjusted font size
+  };
+
+  const mobileNavButtonStyle = {
+    cursor: 'pointer',
+    fontSize: '1.8rem',
+  };
+
+  const toggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
   };
 
   return (
     <header style={headerStyle} className="lg:flex lg:justify-between lg:items-center">
-      <div className="container mx-auto">
-        <div style={logoContainerStyle}>
-          <img src={logo} alt="Logo" style={logoStyle} />
+      <div className="container mx-auto" style={containerStyle}>
+
+        <div className="flex" style={logoContainerStyle}>
+          {/* <img src={logo} alt="Logo" style={logoStyle} />  */}
           <div>
-            {/* <div style={companyNameStyle}>COINFLUX SERVICES</div> */}
+            <div style={companyNameStyle}>
+              COINFLUX SERVICES PVT. LTD.
+            </div>
           </div>
         </div>
-        <nav className="lg:flex lg:items-center">
-          <ul style={navbarStyle} className="lg:flex lg:items-center">
+
+        {/* Display the React icon as a navigation button on smaller screens */}
+        <div className="lg:hidden" style={mobileNavButtonStyle} onClick={toggleMobileNav}>
+          {isMobileNavOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMobileNavOpen && (
+          <div className="lg:hidden mt-4">
+            <ul style={navbarStyle} className="flex flex-col items-center">
+              <li style={navItemStyle}><Link to="/" onClick={toggleMobileNav}>Home</Link></li>
+              <li style={navItemStyle}><Link to="/services" onClick={toggleMobileNav}>Services</Link></li>
+              <li style={navItemStyle}><Link to="/contact" onClick={toggleMobileNav}>Contact</Link></li>
+              <li style={navItemStyle}><Link to="/location" onClick={toggleMobileNav}>Location</Link></li>
+            </ul>
+          </div>
+        )}
+
+        {/* Desktop Navigation */}
+        <nav className="lg:flex hidden ml-auto">
+          <ul style={navbarStyle} className="flex items-center">
             <li style={navItemStyle}><Link to="/">Home</Link></li>
             <li style={navItemStyle}><Link to="/services">Services</Link></li>
-            {/* <li style={navItemStyle}><Link to="/contact">Contact</Link></li> */}
+            <li style={navItemStyle}><Link to="/contact">Contact</Link></li>
             <li style={navItemStyle}><Link to="/location">Location</Link></li>
           </ul>
         </nav>
+
       </div>
     </header>
   );

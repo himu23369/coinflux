@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { Phone, Mail, Clock, Heart, Instagram, Linkedin, Twitter, Facebook} from 'react-feather';
+import { Phone, Mail, Clock, Heart, Instagram, Linkedin, Twitter, Facebook } from 'react-feather';
 
 const Footer = () => {
   const contactStyle = {
@@ -21,13 +21,13 @@ const Footer = () => {
           <div className="flex items-center mb-2">
             <Phone size={16} className="mr-2" />
             <a href="tel:01762-518790" className="" style={contactStyle}>
-              Call: 01762-518790
+               01762-518790
             </a>
           </div>
           <div className="flex items-center mb-2">
             <Mail size={16} className="mr-2" />
             <a href="mailto:coinflux@outlook.com" className="" style={contactStyle}>
-              Email: coinflux@outlook.com
+              coinflux@outlook.com
             </a>
           </div>
           <div className="flex items-center">
@@ -53,10 +53,11 @@ const Footer = () => {
           {/* Follow us on <span className="font-semibold">@CoinfluxServices</span> */}
         </p>
         <p className="text-sm text-gray-300">
-          &copy; 2023 COINFLUX SERVICES PVT. LTD. All rights reserved. 
+          &copy; 2023 COINFLUX SERVICES PVT. LTD.
           {/* Made with{' '} */}
           {/* <Heart size={16} className="text-red-500 inline" /> for you */}
         </p>
+        <p>All rights reserved.</p>
       </div>
     </footer>
   );

@@ -10,23 +10,6 @@ const Branches = () => {
     { name: 'Mohali', coordinates: [30.7046, 76.7179] },
   ];
 
-  const mapRef = useRef(null);
-
-  const handleScroll = (event) => {
-    event.stopPropagation();
-  };
-
-  const MapComponent = () => {
-    const map = useMap();
-
-    cities.forEach((city) => {
-      const marker = L.marker(city.coordinates).addTo(map);
-      marker.bindPopup(`<b>${city.name}</b>`).openPopup();
-    });
-
-    return null;
-  };
-
   return (
     <section className="bg-gradient-to-r from-#2C3E5 p-8">
       <div className="container mx-auto">
@@ -38,7 +21,31 @@ const Branches = () => {
             </div>
           ))}
         </div>
-        <div className="mt-8" onWheel={handleScroll}>
+      </div>
+    </section>
+  );
+};
+
+export default Branches;
+
+  // const mapRef = useRef(null);
+
+  // const handleScroll = (event) => {
+  //   event.stopPropagation();
+  // };
+
+  // const MapComponent = () => {
+  //   const map = useMap();
+
+  //   cities.forEach((city) => {
+  //     const marker = L.marker(city.coordinates).addTo(map);
+  //     marker.bindPopup(`<b>${city.name}</b>`).openPopup();
+  //   });
+
+  //   return null;
+  // };
+
+   {/* <div className="mt-8" onWheel={handleScroll}>
           <div style={{ height: '400px', border: '2px solid #4CAF50', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }} ref={mapRef}>
             <MapContainer center={[28.6139, 77.2090]} zoom={10} style={{ height: '100%' }} scrollWheelZoom={false} doubleClickZoom={false}>
               <TileLayer
@@ -48,10 +55,4 @@ const Branches = () => {
               <MapComponent />
             </MapContainer>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Branches;
+        </div> */}

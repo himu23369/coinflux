@@ -25,8 +25,8 @@ const HeaderNavbar = () => {
   };
 
   const logoStyle = {
-    height: '3.8rem',
-    width: '10rem',
+    height: '2.6rem',
+    width: '5.2rem',
     marginRight: '1rem', // Adjusted margin
   };
 
@@ -35,6 +35,12 @@ const HeaderNavbar = () => {
     fontWeight: 'bold',
     display: 'flex',
     alignItems: 'center',
+  };
+
+  const companyNameMobileStyle = {
+    ...companyNameStyle,
+    marginLeft: isMobileNavOpen ? '1rem' : '0', // Adjusted margin when mobile nav is open
+    transition: 'margin 0.3s ease-in-out', // Added transition for smooth animation
   };
 
   const navbarStyle = {
@@ -48,7 +54,7 @@ const HeaderNavbar = () => {
   const navItemStyle = {
     marginTop: '1rem',
     marginLeft: '1.5rem',
-    fontSize: '1.6rem', // Adjusted font size
+    fontSize: '1.3rem', // Adjusted font size
   };
 
   const mobileNavButtonStyle = {
@@ -63,11 +69,10 @@ const HeaderNavbar = () => {
   return (
     <header style={headerStyle} className="lg:flex lg:justify-between lg:items-center">
       <div className="container mx-auto" style={containerStyle}>
-
         <div className="flex" style={logoContainerStyle}>
-          {/* <img src={logo} alt="Logo" style={logoStyle} />  */}
           <div>
-            <div style={companyNameStyle}>
+            <div style={isMobileNavOpen ? companyNameMobileStyle : companyNameStyle}>
+              {/* <img src={logo} alt="Logo" style={logoStyle} /> */}
               COINFLUX SERVICES PVT. LTD.
             </div>
           </div>
@@ -82,10 +87,10 @@ const HeaderNavbar = () => {
         {isMobileNavOpen && (
           <div className="lg:hidden mt-4">
             <ul style={navbarStyle} className="flex flex-col items-center">
-              <li style={navItemStyle}><Link to="/" onClick={toggleMobileNav}>Home</Link></li>
+              <li style={navItemStyle}><Link to="/" onClick={toggleMobileNav}>About Us</Link></li>
               <li style={navItemStyle}><Link to="/services" onClick={toggleMobileNav}>Services</Link></li>
-              <li style={navItemStyle}><Link to="/contact" onClick={toggleMobileNav}>Contact</Link></li>
-              <li style={navItemStyle}><Link to="/location" onClick={toggleMobileNav}>Location</Link></li>
+              <li style={navItemStyle}><Link to="/contact" onClick={toggleMobileNav}>Contact Us</Link></li>
+              {/* <li style={navItemStyle}><Link to="/location" onClick={toggleMobileNav}>Location</Link></li> */}
             </ul>
           </div>
         )}
@@ -93,13 +98,12 @@ const HeaderNavbar = () => {
         {/* Desktop Navigation */}
         <nav className="lg:flex hidden ml-auto">
           <ul style={navbarStyle} className="flex items-center">
-            <li style={navItemStyle}><Link to="/">Home</Link></li>
+            <li style={navItemStyle}><Link to="/">About Us</Link></li>
             <li style={navItemStyle}><Link to="/services">Services</Link></li>
-            <li style={navItemStyle}><Link to="/contact">Contact</Link></li>
-            <li style={navItemStyle}><Link to="/location">Location</Link></li>
+            <li style={navItemStyle}><Link to="/contact">Contact Us</Link></li>
+            {/* <li style={navItemStyle}><Link to="/location">Location</Link></li> */}
           </ul>
         </nav>
-
       </div>
     </header>
   );

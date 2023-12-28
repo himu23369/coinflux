@@ -1,8 +1,12 @@
 import React from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import Branches from './Branches';
+import HeadOffice from './HeadOffice';
 
 const ContactUs = () => {
   return (
+    <>
+    <HeadOffice />
     <section className="bg-gray-100 p-8">
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold mb-8">Contact Information</h2>
@@ -33,6 +37,8 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+    <Branches/>
+    </>
   );
 };
 

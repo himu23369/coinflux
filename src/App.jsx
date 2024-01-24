@@ -11,22 +11,21 @@ import Footer from './components/Footer.jsx';
 import HeaderNavbar from './components/HeaderNavbar.jsx';
 import ContactUs from './components/ContactUs.jsx';
 import Locations from './components/Locations.jsx';
-import TandC from './components/TandC.jsx';
+
+import TermsOfService from './components/TandC.jsx';
 import PrivacyPolicy from './components/PrivacyAndPolicy.jsx';
-import CopyRight from './components/CopyRight.jsx';
+import CopyrightNotice from './components/CopyRight.jsx';
 
 
 const App = () => {
   return (
     <BrowserRouter>
     <HeaderNavbar />
-    {/* <Header/> */}
-    {/* <Navbar/> */}
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path="/copyright" element={<CopyRight />} />
+        <Route path="/copyright" element={<CopyrightNotice />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-and-conditions" element={<TandC />} />
+        <Route path="/terms-and-conditions" element={<TermsOfService />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/location" element={<Locations />} />
         <Route path="/contact" element={<ContactUs />} />

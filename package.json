@@ -1,5 +1,6 @@
 {
   "name": "coinflux",
+  "homepage" :"http://www.coinflux.in/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
